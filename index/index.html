@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O'rta asrlarda Xitoy - 8-sinf Jahon tarixi</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Noto+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --imperial-red: #DC143C;
+            --gold: #FFD700;
+            --dark-gold: #B8860B;
+            --cream: #FFFAF0;
+            --parchment: #FFF8E7;
+            --ink-black: #1a1a1a;
+            --shadow-red: rgba(220, 20, 60, 0.15);
+            --border-gold: #DAA520;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background: linear-gradient(135deg, var(--parchment) 0%, var(--cream) 100%);
+            color: var(--ink-black);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(220, 20, 60, 0.02) 100px, rgba(220, 20, 60, 0.02) 102px),
+                repeating-linear-gradient(-45deg, transparent, transparent 100px, rgba(255, 215, 0, 0.02) 100px, rgba(255, 215, 0, 0.02) 102px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(to bottom, rgba(220, 20, 60, 0.95), rgba(139, 0, 0, 0.95));
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 20px var(--shadow-red);
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--cream);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--imperial-red) 0%, #8B0000 100%);
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px var(--shadow-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 215, 0, 0.1) 40px,
+                    rgba(255, 215, 0, 0.1) 80px);
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero .subtitle {
+            color: var(--cream);
+            font-size: 1.3rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .author-credit {
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+            font-family: 'Noto Sans', sans-serif;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .dragon-symbol {
+            font-size: 4rem;
+            margin: 1rem 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            margin: 4rem 0;
+            animation: fadeIn 0.8s ease-out;
+            scroll-margin-top: 100px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--border-gold);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--imperial-red), var(--gold), var(--imperial-red));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(220, 20, 60, 0.2);
+        }
+
+        .card h2 {
+            font-family: 'Noto Serif', serif;
+            font-size: 2.2rem;
+            color: var(--imperial-red);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card h2::before {
+            content: '◆';
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.6rem;
+            color: var(--dark-gold);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .card li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            color: var(--dark-gold);
+            font-weight: 600;
+        }
+
+        /* Dynasty Cards Grid */
+        .dynasty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .dynasty-card {
+            background: linear-gradient(135deg, white 0%, var(--parchment) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 2px solid var(--border-gold);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dynasty-card::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .dynasty-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px var(--shadow-red);
+        }
+
+        .dynasty-card h4 {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.4rem;
+            color: var(--imperial-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .dynasty-card .period {
+            color: var(--dark-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--shadow-red), rgba(255, 215, 0, 0.2));
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-gold);
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        /* Questions Section */
+        .questions {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 3px solid var(--imperial-red);
+        }
+
+        .question-item {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 5px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .question-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.1);
+        }
+
+        .question-number {
+            color: var(--imperial-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(to top, var(--imperial-red), #8B0000);
+            border-radius: 20px;
+            margin-top: 4rem;
+            color: var(--cream);
+        }
+
+        .footer h2 {
+            font-family: 'Noto Serif', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h2 {
+                font-size: 1.6rem;
+            }
+
+            .dynasty-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#kirish">Kirish</a></li>
+            <li><a href="#geografiya">Geografiya</a></li>
+            <li><a href="#sulolalar">Sulolalar</a></li>
+            <li><a href="#boshqaruv">Boshqaruv</a></li>
+            <li><a href="#iqtisodiyot">Iqtisodiyot</a></li>
+            <li><a href="#ipak">Ipak yo'li</a></li>
+            <li><a href="#ixtirolar">Ixtirolar</a></li>
+            <li><a href="#madaniyat">Madaniyat</a></li>
+            <li><a href="#xulosa">Xulosa</a></li>
+            <li><a href="#savollar">Savollar</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="dragon-symbol">🐉</div>
+                <h1>O'rta asrlarda Xitoy</h1>
+                <p class="subtitle">8-sinf Jahon tarixi | Buyuk Sharq sivilizatsiyasi</p>
+                <p class="author-credit">by dadik pro</p>
+            </div>
+        </div>
+
+        <!-- Kirish -->
+        <section id="kirish" class="reveal">
+            <div class="card">
+                <img src="xitoy-intro-image.jpg" alt="O'rta asrlar Xitoy hayoti"
+                    style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 1.5rem;">
+                <h2>Kirish</h2>
+                <ul>
+                    <li>O'rta asrlarda Xitoy <span class="highlight">Sharqdagi eng rivojlangan davlatlardan biri</span>
+                        bo'lgan</li>
+                    <li>Kuchli <span class="highlight">sulolalar</span> tomonidan boshqarilgan</li>
+                    <li><span class="highlight">Ilm-fan, hunarmandchilik va savdo</span> yuqori darajada rivoj topgan
+                    </li>
+                    <li>Jahon taraqqiyotiga katta hissa qo'shgan buyuk sivilizatsiya</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Geografiya -->
+        <section id="geografiya" class="reveal">
+            <div class="card">
+                <h2>Xitoyning geografik joylashuvi</h2>
+                <div class="image-placeholder">🗺️</div>
+                <ul>
+                    <li><span class="highlight">Sharqiy Osiyoda</span> joylashgan ulkan davlat</li>
+                    <li>Asosiy daryolar: <span class="highlight">Yanszi va Xuanxe</span> daryolari</li>
+                    <li>Qulay iqlim sharoiti va unumdor yerlar dehqonchilikni rivojlantirishga yordam bergan</li>
+                    <li><span class="highlight">Buyuk Xitoy devori</span> - shimoliy chegaralarni himoya qilgan</li>
+                    <li>Tog'lar, tekisliklar va daryolar xilma-xil landshaftni yaratgan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Asosiy Sulolalar -->
+        <section id="sulolalar" class="reveal">
+            <div class="card">
+                <h2>O'rta asrlar davridagi asosiy sulolalar</h2>
+                <div class="dynasty-grid">
+                    <div class="dynasty-card">
+                        <h4>Suy sulolasi</h4>
+                        <p class="period">581–618</p>
+                        <p>Xitoyni birlashtirgan, Buyuk kanal qurilgan</p>
+                    </div>
+                    <div class="dynasty-card">
+                        <h4>Tan sulolasi</h4>
+                        <p class="period">618–907</p>
+                        <p>Eng qudratli davr, madaniyat gullagan</p>
+                    </div>
+                    <div class="dynasty-card">
+                        <h4>Sun sulolasi</h4>
+                        <p class="period">960–1279</p>
+                        <p>Savdo va shaharlar rivojlandi</p>
+                    </div>
+                    <div class="dynasty-card">
+                        <h4>Yuan sulolasi</h4>
+                        <p class="period">1271–1368</p>
+                        <p>Mo'g'ullar hukmronligi</p>
+                    </div>
+                    <div class="dynasty-card">
+                        <h4>Min sulolasi</h4>
+                        <p class="period">1368–1644</p>
+                        <p>Buyuk devori qayta qurildi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suy sulolasi -->
+        <section id="suy" class="reveal">
+            <div class="card">
+                <h2>Suy sulolasi (581–618)</h2>
+                <div class="image-placeholder">⛩️</div>
+                <ul>
+                    <li>Xitoyni <span class="highlight">birlashtirgan</span> sulola</li>
+                    <li><span class="highlight">Buyuk kanal</span> qurilgan - shimol va janubni bog'lagan ulkan suv
+                        yo'li</li>
+                    <li>Qisqa muddat (37 yil) hukmronlik qilgan</li>
+                    <li>Keyingi sulolalar uchun asos yaratgan</li>
+                    <li>Katta qurilish ishlari olib borilgan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tan sulolasi -->
+        <section id="tan" class="reveal">
+            <div class="card">
+                <h2>Tan sulolasi (618–907)</h2>
+                <div class="image-placeholder">👑</div>
+                <ul>
+                    <li>Xitoy tarixidagi <span class="highlight">eng qudratli davrlardan biri</span></li>
+                    <li>Poytaxt: <span class="highlight">Chan'an</span> - dunyodagi eng katta shahar (1 million aholiga
+                        yaqin)</li>
+                    <li><span class="highlight">Madaniyat va san'at</span> yuqori darajaga yetgan</li>
+                    <li>Kuchli armiya va kengaygan hudud</li>
+                    <li>Xorijiy davlatlar bilan faol aloqalar o'rnatilgan</li>
+                    <li>She'riyat va rassomchilik gullagan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Sun sulolasi -->
+        <section id="sun" class="reveal">
+            <div class="card">
+                <h2>Sun sulolasi (960–1279)</h2>
+                <div class="image-placeholder">🏙️</div>
+                <ul>
+                    <li><span class="highlight">Savdo va shaharlar</span> jadal rivojlandi</li>
+                    <li><span class="highlight">Pul muomalasi va bank tizimi</span> paydo bo'ldi</li>
+                    <li>Dunyodagi birinchi <span class="highlight">qog'oz pullar</span> ishlatilgan</li>
+                    <li><span class="highlight">Kompas</span> kashf etildi</li>
+                    <li><span class="highlight">Bosma kitoblar</span> keng tarqaldi</li>
+                    <li>Dengiz savdosi rivojlandi</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Yuan sulolasi -->
+        <section id="yuan" class="reveal">
+            <div class="card">
+                <h2>Yuan sulolasi (1271–1368) - Mo'g'ullar davri</h2>
+                <div class="image-placeholder">🏇</div>
+                <ul>
+                    <li><span class="highlight">Chingizxon avlodlari</span> hukmronligi</li>
+                    <li><span class="highlight">Xubilayxon</span> asos solgan</li>
+                    <li>Markazlashgan kuchli boshqaruv tizimi</li>
+                    <li><span class="highlight">Ipak yo'li</span> qayta jonlandi</li>
+                    <li>Xorijiy savdogarlar (Marko Polo) Xitoyga tashrif buyurishgan</li>
+                    <li>Pekin poytaxt bo'lgan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Min sulolasi -->
+        <section id="min" class="reveal">
+            <div class="card">
+                <h2>Min sulolasi (1368–1644)</h2>
+                <div class="image-placeholder">🛡️</div>
+                <ul>
+                    <li><span class="highlight">Mo'g'ullar quvib chiqarildi</span> va milliy hukmronlik qayta tiklandi
+                    </li>
+                    <li><span class="highlight">Buyuk Xitoy devori</span> qayta qurildi va mustahkamlandi</li>
+                    <li>Admiral <span class="highlight">Chjen Xe</span> boshchiligidagi dengiz ekspeditsiyalari</li>
+                    <li>Porselan va ipak ishlab chiqarish yuksaldi</li>
+                    <li>"Taqiqlangan shahar" qurilgan</li>
+                    <li>Madaniyat va san'at gullab-yashnadi</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Davlat boshqaruvi -->
+        <section id="boshqaruv" class="reveal">
+            <div class="card">
+                <h2>Davlat boshqaruvi</h2>
+                <div class="image-placeholder">⚖️</div>
+                <ul>
+                    <li><span class="highlight">Imperator</span> - oliy hokim, "Osmon O'g'li" deb atalgan</li>
+                    <li><span class="highlight">Amaldorlar imtihon orqali</span> tanlangan (meritoktratiya tizimi)</li>
+                    <li><span class="highlight">Konfutsiylik ta'limoti</span> davlat boshqaruvining asosi bo'lgan</li>
+                    <li>Markazlashgan boshqaruv tizimi</li>
+                    <li>Viloyatlar va okruglarga bo'lingan</li>
+                    <li>Qonunlar va qoidalar aniq belgilangan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Iqtisodiyot -->
+        <section id="iqtisodiyot" class="reveal">
+            <div class="card">
+                <h2>Iqtisodiyot</h2>
+                <div class="image-placeholder">🌾</div>
+                <h3>Dehqonchilik</h3>
+                <ul>
+                    <li><span class="highlight">Dehqonchilik</span> iqtisodiyotning asosiy soha bo'lgan</li>
+                    <li><span class="highlight">Guruch va bug'doy</span> asosiy ekinlar yetishtirilgan</li>
+                    <li>Taraqqiy etgan sug'orish tizimlari</li>
+                </ul>
+                <h3>Hunarmandchilik</h3>
+                <ul>
+                    <li><span class="highlight">Ipak to'qish</span> - dunyoga mashhur hunarmandchilik</li>
+                    <li><span class="highlight">Chinni (porselan)</span> ishlab chiqarish</li>
+                    <li>Temir va bronza buyumlar ishlab chiqarish</li>
+                </ul>
+                <h3>Savdo</h3>
+                <ul>
+                    <li>Ichki va <span class="highlight">tashqi savdo</span> rivojlangan</li>
+                    <li>Katta bozorlar va savdo markazlari</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Ipak yo'li -->
+        <section id="ipak" class="reveal">
+            <div class="card">
+                <h2>Ipak yo'li</h2>
+                <div class="image-placeholder">🐫</div>
+                <ul>
+                    <li>Xitoyni <span class="highlight">G'arb bilan bog'lagan</span> buyuk savdo yo'li</li>
+                    <li><span class="highlight">Ipak, chinni va qog'oz</span> eksport qilingan</li>
+                    <li>G'arbdan oltin, kumush va boshqa tovarlar keltirilgan</li>
+                    <li><span class="highlight">Madaniyatlar almashuvi</span> sodir bo'lgan</li>
+                    <li>G'oyalar, dinlar va texnologiyalar tarqalgan</li>
+                    <li>Xalqaro aloqalar mustahkamlangan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Ilm-fan va ixtirolar -->
+        <section id="ixtirolar" class="reveal">
+            <div class="card">
+                <h2>Ilm-fan va ixtirolar</h2>
+                <div class="image-placeholder">📜</div>
+                <p>Xitoy olimlarining jahon sivilizatsiyasiga qo'shgan ulkan hissasi:</p>
+                <h3>To'rtta buyuk ixtiro</h3>
+                <ul>
+                    <li><span class="highlight">Qog'oz</span> (105-yil, Tsay Lun) - yozuv madaniyatini inqilob qildi
+                    </li>
+                    <li><span class="highlight">Bosma usuli</span> (VIII-IX asr) - kitoblarni ko'paytirish imkonini
+                        berdi</li>
+                    <li><span class="highlight">Porox</span> (IX asr) - harbiy ishda va bayramlarda ishlatilgan</li>
+                    <li><span class="highlight">Kompas</span> (XI asr) - dengiz safarlarini osonlashtirdi</li>
+                </ul>
+                <h3>Boshqa yutuqlar</h3>
+                <ul>
+                    <li>Astronomiya va kalendar tuzish</li>
+                    <li>Matematika va geometriya</li>
+                    <li>Tibbiyot va dori-darmonlar</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Madaniyat va din -->
+        <section id="madaniyat" class="reveal">
+            <div class="card">
+                <h2>Madaniyat va din</h2>
+                <div class="image-placeholder">☯️</div>
+                <h3>Diniy ta'limotlar</h3>
+                <ul>
+                    <li><span class="highlight">Konfutsiylik</span> - axloq va davlat boshqaruvi haqida ta'limot</li>
+                    <li><span class="highlight">Buddaviylik</span> - Hindistondan kelgan din</li>
+                    <li><span class="highlight">Daosizm</span> - tabiat bilan uyg'unlikda yashash falsafasi</li>
+                </ul>
+                <h3>San'at va adabiyot</h3>
+                <ul>
+                    <li><span class="highlight">She'riyat</span> rivojlangan - Li Bo va Du Fu kabi buyuk shoirlar</li>
+                    <li><span class="highlight">Rassomchilik</span> - tabiiy manzaralar va portretlar</li>
+                    <li><span class="highlight">Kaligrafiya</span> - go'zal yozuv san'ati</li>
+                    <li>Musiqa va teatr san'ati</li>
+                    <li>Me'morchilik - ibodatxonalar, saroylar va bog'lar</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Infografika -->
+        <section class="reveal">
+            <div class="card">
+                <h2>Vizual Ma'lumotlar</h2>
+                <img src="xitoy-slides.jpg" alt="O'rta asrlar Xitoy sulolalari va madaniyati"
+                    style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <p style="text-align: center; margin-top: 1rem; color: var(--dark-gold); font-style: italic;">Sulolalar,
+                    ixtirolar va madaniyat haqida qisqacha ma'lumot</p>
+            </div>
+        </section>
+
+        <!-- Xulosa -->
+        <section id="xulosa" class="reveal">
+            <div class="card">
+                <h2>Xulosa</h2>
+                <div class="image-placeholder">✨</div>
+                <ul>
+                    <li>O'rta asrlarda Xitoy <span class="highlight">kuchli va ilg'or davlat</span> bo'lgan</li>
+                    <li><span class="highlight">Ilm-fan va texnologiya</span> sohasida dunyo yetakchisi edi</li>
+                    <li>Madaniyat va san'at yuqori darajaga yetgan</li>
+                    <li><span class="highlight">To'rtta buyuk ixtiro</span> butun insoniyatga ta'sir ko'rsatdi</li>
+                    <li>Ipak yo'li orqali <span class="highlight">xalqlar o'rtasida aloqalar</span> rivojlandi</li>
+                    <li>Xitoy sivilizatsiyasi jahon taraqqiyotiga katta hissa qo'shgan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Savollar -->
+        <section id="savollar" class="reveal">
+            <div class="card questions">
+                <h2>Nazorat savollari</h2>
+                <div class="question-item">
+                    <span class="question-number">1.</span>
+                    <span>Qaysi sulola davrida Xitoy eng qudratli bo'lgan va madaniyat gullagan?</span>
+                </div>
+                <div class="question-item">
+                    <span class="question-number">2.</span>
+                    <span>Ipak yo'lining jahon tarixidagi ahamiyati nimada?</span>
+                </div>
+                <div class="question-item">
+                    <span class="question-number">3.</span>
+                    <span>Xitoyning to'rtta buyuk ixtirosini sanab bering va ularning ahamiyatini tushuntiring.</span>
+                </div>
+                <div class="question-item">
+                    <span class="question-number">4.</span>
+                    <span>O'rta asrlar Xitoyida davlat amaldorlari qanday tanlangan?</span>
+                </div>
+                <div class="question-item">
+                    <span class="question-number">5.</span>
+                    <span>Xitoy sivilizatsiyasining jahon madaniyatiga qo'shgan asosiy hissalari nimalar?</span>
+                </div>
+                <div class="question-item">
+                    <span class="question-number">6.</span>
+                    <span>Yuan sulolasi davrida Xitoyda qanday o'zgarishlar bo'lgan?</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Rahmat -->
+        <div class="footer">
+            <div class="dragon-symbol">🐉</div>
+            <h2>Rahmat!</h2>
+            <p>E'tiboringiz uchun tashakkur</p>
+            <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">
+                8-sinf Jahon tarixi | O'rta asrlarda Xitoy
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+
+        // Initial check for elements in view
+        reveal();
+
+        // Add active class to current nav item
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
